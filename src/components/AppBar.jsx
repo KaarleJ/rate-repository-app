@@ -9,13 +9,13 @@ import useAuthStorage from '../hooks/useAuthStorage';
 
 const styles = StyleSheet.create({
   container: {
-    padding: 20,
-    paddingTop: Constants.statusBarHeight,
+    padding: 15,
+    marginTop: Constants.statusBarHeight,
     backgroundColor: "#24292e",
   },
   tab: {
-    paddingLeft: 10,
-    paddingRight: 10
+    paddingLeft: 5,
+    paddingRight: 5
   }
 });
 
@@ -40,9 +40,30 @@ const AppBar = () => {
           <Link to='/' style={styles.tab}>
             <Text color='textHeading' fontSize='subheading' fontWeight='bold'>Repositories</Text>
           </Link>
+          {user ?
+            <Link to={`/myreviews/`} style={styles.tab}>
+              <Text color='textHeading' fontSize='subheading' fontWeight='bold'>my reviews</Text>
+            </Link>
+          :
+            null
+          }
+          {user ?
+            <Link to={`/review`} style={styles.tab}>
+              <Text color='textHeading' fontSize='subheading' fontWeight='bold'>create a review</Text>
+            </Link>
+          :
+            null
+          }
           {user === null ?
             <Link to='/signin' style={styles.tab}>
               <Text color='textHeading' fontSize='subheading' fontWeight='bold'>signin</Text>
+            </Link>
+          :
+            null
+          }
+          {user === null ?
+            <Link to='/signup' style={styles.tab}>
+              <Text color='textHeading' fontSize='subheading' fontWeight='bold'>signup</Text>
             </Link>
           :
             null

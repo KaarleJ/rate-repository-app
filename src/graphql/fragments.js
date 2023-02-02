@@ -10,5 +10,7 @@ export const ItemFields = gql`
     ratingAverage
     reviewCount
     stargazersCount
+    id
+    url
   }
 `;
